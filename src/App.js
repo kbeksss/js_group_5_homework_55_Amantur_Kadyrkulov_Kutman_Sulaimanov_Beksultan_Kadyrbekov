@@ -1,26 +1,54 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {Component} from 'react';
 import './App.css';
+import Food from "./Components/Ingredients/Food";
+import Output from "./Components/Output/Output";
+import classnames from "classnames";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component{
+ state = {
+  ingredients: [
+   {name: 'Meat', count: 1},
+   {name: 'Cheese', count: 1},
+   {name: 'Salad', count: 1},
+   {name: 'Bacon', count: 1}
+  ]
+ };
+ add = index => {
+    let ingredients = [...this.state.ingredients];
+    let food = {...ingredients[index]};
+    food.count++;
+    ingredients[index] = food;
+    this.setState({ingredients})
+ };
+ changeCount = (event, index) => {
+    let ingredients = [...this.state.ingredients];
+    let food = {...ingredients[index]};
+    food.count = event.target.value;
+    ingredients[index] = food;
+    this.setState({ingredients});
+ };
+ decrease = index => {
+    let ingredients = [...this.state.ingredients];
+    let food = {...ingredients[index]};
+    if(food.count > 0){
+     food.count--;
+     ingredients[index] = food;
+     this.setState({ingredients});
+    }
+ };
+ render() {
+    return (
+       <div className='App'>
+         <Food
+           ingredients={this.state.ingredients}
+           add={this.add}
+           change={this.changeCount}
+           remove={this.decrease}
+         />
+         <Output/>
+       </div>
+    )
+ }
 }
 
 export default App;
