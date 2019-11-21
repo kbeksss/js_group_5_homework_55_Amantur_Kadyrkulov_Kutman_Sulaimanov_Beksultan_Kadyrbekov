@@ -1,7 +1,11 @@
 button.Button {
-    width: 20px;
-    height: 20px;
+    width: 30px;
+    height: 30px;
     padding: 0;
+    flex-grow: 1;
+    color: #fff;
+    background: #3b5d2f;
+    font-size: 18px;
 }
 
 .Button_add{
@@ -9,6 +13,9 @@ button.Button {
 }
 .Button_remove{
     margin: 0 5px 0 20px;
+}
+.Button.Red{
+    background: red;
 }
 
 .block {
@@ -18,4 +25,5 @@ button.Button {
 }
 .block input{
     width: 20px;
+    text-align: center;
 }

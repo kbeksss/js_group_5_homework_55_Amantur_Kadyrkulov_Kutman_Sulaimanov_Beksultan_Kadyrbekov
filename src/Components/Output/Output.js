@@ -21,7 +21,9 @@ const Output = (props) => {
                {ingredients}
                <div className="BreadBottom"/>
            </div>
-           Price: {props.price} soms
+           <div className='Price'>
+               Price: {props.price} soms
+           </div>
        </div>
     );
 };

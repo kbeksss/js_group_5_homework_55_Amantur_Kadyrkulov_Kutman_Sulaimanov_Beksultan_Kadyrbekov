@@ -13,6 +13,7 @@ const Food = props => {
                         count={ingredient.count}
                         change={(event) => props.change(event, index)}
                         add={() => props.add(index)}
+                        imageClick={() => props.imageClick(index)}
                     />
                 ))}
             </div>
