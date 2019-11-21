@@ -2,7 +2,16 @@ import React, {Component} from 'react';
 import './App.css';
 import Food from "./Components/Ingredients/Food";
 import Output from "./Components/Output/Output";
-import classnames from "classnames";
+//todo: why do we need 'import meatImage from './assets/meat.png';
+//todo: is it ok to add ingredients in dummy order;
+
+const Ingredients = [
+    {name: 'Meat', price: 50},
+    {name: 'Cheese', price: 20},
+    {name: 'Salad', price: 5},
+    {name: 'Bacon', price: 30},
+];
+
 
 class App extends Component{
  state = {
@@ -38,6 +47,17 @@ class App extends Component{
  };
 
  render() {
+     let total = 20;
+     this.state.ingredients.forEach(ing => {
+         if(ing.count >= 1){
+             Ingredients.forEach(innerIng => {
+                 if(innerIng.name === ing.name){
+                     total += ing.count * innerIng.price;
+                 }
+             })
+         }
+     });
+
     return (
        <div className='App'>
          <Food
@@ -48,6 +68,7 @@ class App extends Component{
          />
          <Output
             ingredients={this.state.ingredients}
+            price={total}
          />
        </div>
     )
