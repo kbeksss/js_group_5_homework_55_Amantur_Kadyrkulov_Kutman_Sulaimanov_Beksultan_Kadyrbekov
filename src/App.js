@@ -36,6 +36,7 @@ class App extends Component{
      this.setState({ingredients});
     }
  };
+
  render() {
     return (
        <div className='App'>
@@ -45,7 +46,9 @@ class App extends Component{
            change={this.changeCount}
            remove={this.decrease}
          />
-         <Output/>
+         <Output
+            ingredients={this.state.ingredients}
+         />
        </div>
     )
  }

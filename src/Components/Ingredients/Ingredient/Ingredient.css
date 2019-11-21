@@ -13,7 +13,7 @@ button.Button {
 
 .block {
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
 }
 .block input{

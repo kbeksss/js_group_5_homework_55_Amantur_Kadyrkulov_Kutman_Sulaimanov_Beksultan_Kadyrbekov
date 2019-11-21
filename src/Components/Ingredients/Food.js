@@ -14,7 +14,6 @@ const Food = props => {
                         change={(event) => props.change(event, index)}
                         add={() => props.add(index)}
                     />
-
                 ))}
             </div>
         );
